@@ -26,34 +26,28 @@ namespace QuizGame
             GameCards.Add(A);
             GameCards.Add(B);
 
-
-
             foreach (GameCard gc in GameCards)
             {
-
                 //print the question
                 Console.WriteLine(gc.GameQuestion);
-
                 Console.WriteLine("please enter the number of the answer you deem correct");
 
                 // print all the answers and the coresponding numbers
                 int number = 1;
              
                 foreach (String Answer in gc.AnswerOptions) 
-                {                                               //this happens x amount of times (for each answer)
+                {                                              
                     Console.WriteLine(number + Answer);
-                    number++;                                            //this happens x amount of times (for each answer)
-                }                                               //this happens x amount of times (for each answer)
+                    number++;                                  
+                }                                              
                 //get user guess / input
                 string userinput = Console.ReadLine();
 
                 //example : user inputs 1
                 // you want to subtract 1 from whatever the user entered
-
                 int userInputInt = int.Parse(userinput) - 1;
 
                 //check if its the right guess
-
                 if (userInputInt == gc.CorrectAnswerNumber)
                 {
                     Console.WriteLine("yay");
@@ -62,8 +56,6 @@ namespace QuizGame
                 {
                     Console.WriteLine("nay");
                 }
-
-
             }
         }
     }
