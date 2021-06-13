@@ -18,9 +18,9 @@ namespace QuizGame
             A.CorrectAnswerNumber = (1);
 
             B.GameQuestion = "how many hats does Oprah own?";
-            B.AnswerOptions.Add("eight");
-            B.AnswerOptions.Add("one");
-            B.AnswerOptions.Add("twenty");
+            B.AnswerOptions.Add("eight");  // 0
+            B.AnswerOptions.Add("one");    // 1
+            B.AnswerOptions.Add("twenty"); // 2
             B.CorrectAnswerNumber = 0;
 
             GameCards.Add(A);
@@ -44,11 +44,20 @@ namespace QuizGame
                 //get user guess / input
                 string userinput = Console.ReadLine();
 
+                //example : user inputs 1
+                // you want to subtract 1 from whatever the user entered
+
+                int userInputInt = int.Parse(userinput) - 1;
+
                 //check if its the right guess
 
-                if (userinput == gc.CorrectAnswerNumber.ToString())
+                if (userInputInt == gc.CorrectAnswerNumber)
                 {
                     Console.WriteLine("yay");
+                }
+                else
+                {
+                    Console.WriteLine("nay");
                 }
 
 
