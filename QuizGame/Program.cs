@@ -15,31 +15,41 @@ namespace QuizGame
             A.AnswerOptions.Add("Barney");
             A.AnswerOptions.Add("Wnfrey");
             A.AnswerOptions.Add("Fox");
-            A.GameAnswer = (1);
+            A.CorrectAnswerNumber = (1);
 
             B.GameQuestion = "how many hats does Oprah own?";
             B.AnswerOptions.Add("eight");
             B.AnswerOptions.Add("one");
             B.AnswerOptions.Add("twenty");
-            B.GameAnswer = (1);
+            B.CorrectAnswerNumber = 0;
 
             GameCards.Add(A);
             GameCards.Add(B);
 
-     
 
-            foreach (GameCard gc in GameCards) // i think i need to declar the var in gamecard
-            {                             // i tried class, and List, and string though i didnt think it would work
-                
+
+            foreach (GameCard gc in GameCards) 
+            {                             
+
                 //print the question
                 Console.WriteLine(gc.GameQuestion);
 
+                Console.WriteLine("please enter the number of the answer you deem correct");
 
                 // print all the answers
-
+                foreach (String Answer in gc.AnswerOptions)
+                {
+                    Console.WriteLine(Answer);
+                }
                 //get user guess / input
+                string userinput = Console.ReadLine();
 
                 //check if its the right guess
+
+                if (userinput == gc.CorrectAnswerNumber.ToString())
+                {
+                    Console.WriteLine("yay");
+                }
 
 
             }

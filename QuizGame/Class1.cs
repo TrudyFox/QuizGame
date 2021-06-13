@@ -10,7 +10,7 @@ namespace QuizGame
     {
         public string GameQuestion;
         public List<string> AnswerOptions = new List<string>();
-        public int GameAnswer;
+        public int CorrectAnswerNumber;
 
 
     }
