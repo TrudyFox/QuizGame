@@ -28,19 +28,22 @@ namespace QuizGame
 
 
 
-            foreach (GameCard gc in GameCards) 
-            {                             
+            foreach (GameCard gc in GameCards)
+            {
 
                 //print the question
                 Console.WriteLine(gc.GameQuestion);
 
                 Console.WriteLine("please enter the number of the answer you deem correct");
 
-                // print all the answers
-                foreach (String Answer in gc.AnswerOptions)
-                {
-                    Console.WriteLine(Answer);
-                }
+                // print all the answers and the coresponding numbers
+                int number = 1;
+             
+                foreach (String Answer in gc.AnswerOptions) 
+                {                                               //this happens x amount of times (for each answer)
+                    Console.WriteLine(number + Answer);
+                    number++;                                            //this happens x amount of times (for each answer)
+                }                                               //this happens x amount of times (for each answer)
                 //get user guess / input
                 string userinput = Console.ReadLine();
 
