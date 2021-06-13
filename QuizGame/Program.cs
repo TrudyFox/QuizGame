@@ -7,6 +7,7 @@ namespace QuizGame
     {
         static void Main(string[] args)
         {
+            int points = -1;
             List<GameCard> GameCards = new List<GameCard>();
             GameCard A = new GameCard();
             GameCard B = new GameCard();
@@ -37,7 +38,7 @@ namespace QuizGame
              
                 foreach (String Answer in gc.AnswerOptions) 
                 {                                              
-                    Console.WriteLine(number + Answer);
+                    Console.WriteLine($"({number}) {Answer}");
                     number++;                                  
                 }                                              
                 //get user guess / input
@@ -50,12 +51,16 @@ namespace QuizGame
                 //check if its the right guess
                 if (userInputInt == gc.CorrectAnswerNumber)
                 {
+                    points++;
                     Console.WriteLine("yay");
                 }
                 else
                 {
                     Console.WriteLine("nay");
                 }
+                    Console.WriteLine($"Your Score is {points} Points");
+               
+                
             }
         }
     }
