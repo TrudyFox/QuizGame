@@ -14,7 +14,7 @@ namespace QuizGame
 
             A.GameQuestion = "whats Oprahs last name?";
             A.AnswerOptions.Add("Barney");
-            A.AnswerOptions.Add("Wnfrey");
+            A.AnswerOptions.Add("Winfrey");
             A.AnswerOptions.Add("Fox");
             A.CorrectAnswerNumber = (1);
 
