@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace QuizGame
 {
@@ -7,6 +8,16 @@ namespace QuizGame
     {
         static void Main(string[] args)
         {
+            //File.ReadAllLines() <- google that yo
+            //read a file 
+            //put the informations that are in there into gamecard objects
+           
+            string[] readText = File.ReadAllLines(@"C: \Users\Trudy\Documents\QnA.txt");
+            foreach (string docLine in readText)
+            {
+                Console.WriteLine(docLine);
+            }
+
             int points = -1;
             List<GameCard> GameCards = new List<GameCard>();
             GameCard A = new GameCard();
@@ -16,7 +27,7 @@ namespace QuizGame
             A.AnswerOptions.Add("Barney");
             A.AnswerOptions.Add("Winfrey");
             A.AnswerOptions.Add("Fox");
-            A.CorrectAnswerNumber = (1);
+            A.CorrectAnswerNumber = 1;
 
             B.GameQuestion = "how many hats does Oprah own?";
             B.AnswerOptions.Add("eight");  // 0
@@ -35,12 +46,12 @@ namespace QuizGame
 
                 // print all the answers and the coresponding numbers
                 int number = 1;
-             
-                foreach (String Answer in gc.AnswerOptions) 
-                {                                              
+
+                foreach (String Answer in gc.AnswerOptions)
+                {
                     Console.WriteLine($"({number}) {Answer}");
-                    number++;                                  
-                }                                              
+                    number++;
+                }
                 //get user guess / input
                 string userinput = Console.ReadLine();
 
@@ -58,9 +69,10 @@ namespace QuizGame
                 {
                     Console.WriteLine("nay");
                 }
-                    Console.WriteLine($"Your Score is {points} Points");
-               
-                
+
+                Console.WriteLine($"Your Score is {points} Points");
+
+
             }
         }
     }

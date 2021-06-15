@@ -1,0 +1,12 @@
+This is a Question
+This is answer num1
+This is answer num2
+This is answer num3
+This is answer num4
+0
+This is the next question
+yes
+not
+maybe
+perhaps
+3
