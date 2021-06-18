@@ -12,21 +12,22 @@ namespace QuizGame
             //read a file 
             //put the informations that are in there into gamecard objects
            
-            string[] readText = File.ReadAllLines(@"C: \Users\Trudy\Documents\QnA.txt");
-            foreach (string docLine in readText)
-            {
-                Console.WriteLine(docLine);
-            }
-
-            int points = -1;
+            string[] readText = File.ReadAllLines(@"C:\Users\Trudy\Documents\QnA.txt");
+            //foreach (string docLine in readText)
+            
+               // GameCard {docLine}
             List<GameCard> GameCards = new List<GameCard>();
             GameCard A = new GameCard();
+            A.GameQuestion = readText[0];
+            A.AnswerOptions.Add(readText[1]);
+            A.AnswerOptions.Add(readText[2]);
+            A.AnswerOptions.Add(readText[3]);
+
             GameCard B = new GameCard();
 
-            A.GameQuestion = "whats Oprahs last name?";
-            A.AnswerOptions.Add("Barney");
-            A.AnswerOptions.Add("Winfrey");
-            A.AnswerOptions.Add("Fox");
+
+            int points = -1;
+         
             A.CorrectAnswerNumber = 1;
 
             B.GameQuestion = "how many hats does Oprah own?";
