@@ -11,34 +11,26 @@ namespace QuizGame
             //File.ReadAllLines() <- google that yo
             //read a file 
             //put the informations that are in there into gamecard objects
-           
-            string[] readText = File.ReadAllLines(@"C:\Users\Trudy\Documents\QnA.txt");
-            //foreach (string docLine in readText)
-            
-               // GameCard {docLine}
+
+            string[] textFileLines = File.ReadAllLines(@"C:\Users\Trudy\Documents\QnA.txt");
             List<GameCard> GameCards = new List<GameCard>();
-            GameCard A = new GameCard();
-            A.GameQuestion = readText[0];
-            A.AnswerOptions.Add(readText[1]);
-            A.AnswerOptions.Add(readText[2]);
-            A.AnswerOptions.Add(readText[3]);
+            int numberOfGameCardsInTextFile = textFileLines.Length / 6;
 
-            GameCard B = new GameCard();
+            for (int i = 0; i < numberOfGameCardsInTextFile; i++)
+            {
+                int firstLineNumber = i * 6;
+                GameCard A = new GameCard();
+                A.GameQuestion = textFileLines[firstLineNumber];
+                A.AnswerOptions.Add(textFileLines[firstLineNumber + 1]);
+                A.AnswerOptions.Add(textFileLines[firstLineNumber + 2]);
+                A.AnswerOptions.Add(textFileLines[firstLineNumber + 3]);
+                A.AnswerOptions.Add(textFileLines[firstLineNumber + 4]);
+                A.CorrectAnswerNumber = int.Parse(textFileLines[firstLineNumber + 5]);
 
+                GameCards.Add(A);
+            }
 
             int points = -1;
-         
-            A.CorrectAnswerNumber = 1;
-
-            B.GameQuestion = "how many hats does Oprah own?";
-            B.AnswerOptions.Add("eight");  // 0
-            B.AnswerOptions.Add("one");    // 1
-            B.AnswerOptions.Add("twenty"); // 2
-            B.CorrectAnswerNumber = 0;
-
-            GameCards.Add(A);
-            GameCards.Add(B);
-
             foreach (GameCard gc in GameCards)
             {
                 //print the question
@@ -56,7 +48,6 @@ namespace QuizGame
                 //get user guess / input
                 string userinput = Console.ReadLine();
 
-                //example : user inputs 1
                 // you want to subtract 1 from whatever the user entered
                 int userInputInt = int.Parse(userinput) - 1;
 
@@ -72,7 +63,6 @@ namespace QuizGame
                 }
 
                 Console.WriteLine($"Your Score is {points} Points");
-
 
             }
         }
